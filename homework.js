@@ -63,16 +63,16 @@ app.post('/',function(req,res,next){
 
     //select all the data in the database and place in context
     mysql.pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
-    if(err){
-      console.log("Error in Select *");
-      next(err);
-      return;
-    }//end if
-    context.results = JSON.stringify(rows);
-    console.log("JSON.stringify(rows):", JSON.stringify(rows));
-    res.render('home',context);
-  }//end if req.body['add']
-
+      if(err){
+        console.log("Error in Select *");
+        next(err);
+        return;
+      }//end if
+      context.results = JSON.stringify(rows);
+      console.log("JSON.stringify(rows):", JSON.stringify(rows));
+      res.render('home',context);
+      });//end mysql.pool.query
+  }//end if [add]
   console.log("End of Post");
 });//end post
 
