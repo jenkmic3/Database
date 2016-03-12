@@ -73,7 +73,18 @@ app.post('/',function(req,res,next){
       res.render('home',context);
       });//end mysql.pool.query
   }//end if [add]
-  console.log("End of Post");
+  
+  if(req.body['Update']){
+    newId=req.body.hidden;
+    console.log("Req.body:",req.body);
+    console.log("req.hidden:",req.hidden);
+    pool.query('SELECT * FROM myExerciseData WHERE id=newId', function(err, rows, fields){
+      context.results = rows;
+      console.log("context.results in Update:",context.results);
+      res.render('update',context.results);
+    });//end function(err,rows,fields)
+  }//end if Update
+
 });//end post
 
 
