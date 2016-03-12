@@ -77,8 +77,8 @@ app.post('/',function(req,res,next){
   if(req.body['Update']){
     newId=req.body.id;
     console.log("Req.body:",req.body);
-    console.log("req.id:",req.id);
-    pool.query('SELECT * FROM myExerciseData WHERE id=newId', function(err, rows, fields){
+    console.log("req.id:",req.body.id);
+    pool.query('SELECT * FROM myExerciseData WHERE id=?',[newId] function(err, rows, fields){
       if(err){
         console.log("Error in Update Where");
         next(err);
