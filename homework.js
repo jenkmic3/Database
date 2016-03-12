@@ -62,7 +62,7 @@ app.post('/',function(req,res,next){
     });//end pool.query
 
     //select all the data in the database and place in context
-    mysql.pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
+    pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
       if(err){
         console.log("Error in Select *");
         next(err);
