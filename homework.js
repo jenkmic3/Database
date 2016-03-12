@@ -73,7 +73,7 @@ app.post('/',function(req,res,next){
     res.render('home',context);
   }//end if req.body['add']
 
-console.log("End of Post:");
+  console.log("End of Post");
 });//end post
 
 
