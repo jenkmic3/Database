@@ -1,11 +1,11 @@
-<p>results {{results}}</p>
+<p>results {{this.results}}</p>
 
 <form action="/" method="post">
 	<label for="name">Name of Exercise:</label>
-	<input id="name" type="text" name="name" value="{{this.name}}">
+	<input id="name" type="text" name="name" value="{{this.results.name}}">
 	
 	<label for="reps">Number of Reps:</label>
-	<input id="reps" type="text" name="reps" value={{this.reps}}>
+	<input id="reps" type="text" name="reps" value={{this.results.reps}}>
 
 	<label for="weight">Weight:</label>
 	<input id="weight" type="text" name="weight" value={{this.weight}}>
