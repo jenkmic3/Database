@@ -87,7 +87,7 @@ app.post('/',function(req,res,next){
       context.results = rows;
       console.log("context.results in Update:",context.results);
       console.log("lbs:",context.results.lbs);
-      res.render('update',context.results);
+      res.render('update',context);
     });//end function(err,rows,fields)
   }//end if Update
 
