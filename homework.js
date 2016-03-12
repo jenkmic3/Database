@@ -70,6 +70,7 @@ app.post('/',function(req,res,next){
       }//end if
       context.results = JSON.stringify(rows);
       console.log("JSON.stringify(rows):", JSON.stringify(rows));
+      console.log("context.results:", context.results);
       res.render('home',context);
       });//end mysql.pool.query
   }//end if [add]
