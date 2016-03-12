@@ -20,9 +20,9 @@
     <input type="submit" name="add">
 </form>
 
-<p>Context Results {{this.results}}</p>
+<p>Context Results {{results}}</p>
 
-{{#if this.results}}
+{{#if results}}
   <p>Your Exercises:</p>  
   <ul>
     <p>Results: {{this.results}}</p>
@@ -31,7 +31,7 @@
     <p>id: {{this.results.id}}</p>
     <p>ID: {{this.results.ID}}</p>
     <p>NAME: {{this.results.NAME}}</p>
-    {{#each this.results}}
+    {{#each results}}
       <p>In Each Results</p>
       <li>
         <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.results.weight}} Date:{{this.results.data}} lbs: {{this.results.lbs}}</h3>
