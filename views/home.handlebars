@@ -26,11 +26,11 @@
   <p>Your Exercises:</p>  
   <ul>
     <p>Results: {{this.results}}</p>
-    <p>Name: {{this.results.name}}</p>
+    <p>Name: {{this.name}}</p>
     {{#each results}}
       <p>In Each Results</p>
       <li>
-        <h3>Exercise: {{this.results.name}} Reps: {{this.results.reps}} Weight: {{this.results.weight}} Date:{{this.results.data}} lbs: {{this.results.lbs}}</h3>
+        <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.results.weight}} Date:{{this.results.data}} lbs: {{this.results.lbs}}</h3>
         <form method="post">
           <input type="hidden" name="id" value="{{this.id}}">
           <input type="submit" name="Delete" value="Delete">
