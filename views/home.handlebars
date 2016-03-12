@@ -1,0 +1,38 @@
+<form action="/" method="post">
+  <div class="container">
+
+    <label for="name">Name of Exercise:</label>
+    <input id="name" type="text" name="name">
+    <br>
+    <label for="reps">Number of Reps:</label>
+    <input id="reps" type="text" name="reps">
+    <br>
+    <label for="weight">Weight:</label>
+    <input id="weight" type="text" name="weight">
+    <br>
+    <label for="dateOccured">Date:</label>
+    <input id="dateOccured" type="text" name="dateOccured">
+    <br>
+  </div>
+    <input type="radio" name="lbs" value=1 checked>lbs<br>
+    <input type="radio" name="lbs" value=0>kg<br>
+    <br>    
+    <input type="submit" name="add">
+</form>
+
+<p>Context Results {{this.results}}</p>
+
+{{#if context.results}}
+  <p>Your Exercises:</p>  
+  <ul>
+    {{#each context.results}}
+      <li>
+        <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.weight}} Date:{{this.data}} lbs: {{this.lbs}}</h3>
+        <form method="post">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input type="submit" name="Delete" value="Delete">
+        </form>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
