@@ -22,12 +22,12 @@
 
 <p>Context Results {{this.results}}</p>
 
-{{#if context.results}}
+{{#if this.results}}
   <p>Your Exercises:</p>  
   <ul>
-    {{#each context.results}}
+    {{#each this.results}}
       <li>
-        <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.weight}} Date:{{this.data}} lbs: {{this.lbs}}</h3>
+        <h3>Exercise: {{this.results.name}} Reps: {{this.results.reps}} Weight: {{this.results.weight}} Date:{{this.results.data}} lbs: {{this.results.lbs}}</h3>
         <form method="post">
           <input type="hidden" name="id" value="{{this.id}}">
           <input type="submit" name="Delete" value="Delete">
