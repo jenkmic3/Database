@@ -29,7 +29,7 @@
     {{#each results}}
       <p>In Each Results</p>
       <li>
-        <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.weight}} Date:{{this.data}} lbs: {{this.lbs}}
+        <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.weight}} Date:{{this.dateOccured}} lbs: {{this.lbs}}
           <form method="post">
             <input type="hidden" name="id" value="{{this.id}}">
             <input type="submit" name="Delete" value="Delete">

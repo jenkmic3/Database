@@ -11,11 +11,11 @@
 	<label for="date">Date:</label>
 	<input id="date" type="text" name="date" value={{this.date}}>
 
-	{{#if this.lbs==1}}
+	{{#if this.lbs=='1'}}
 		<input type="radio" name="lbs" value=1 checked>lbs<br>
 	    <input type="radio" name="lbs" value=0>kg<br>
 	{{/if}}
-	{{#if this.lbs==0}}
+	{{#if this.lbs=='0'}}
 		<input type="radio" name="lbs" value=0>lbs<br>
 	    <input type="radio" name="lbs" value=1 checked>kg<br>
 	{{/if}}
