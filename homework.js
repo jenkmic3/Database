@@ -49,7 +49,7 @@ app.post('/',function(req,res,next){
     console.log("In the add section");
     pool.query("INSERT INTO myExerciseData (`name`, `reps`, `weight`, `dateOccured`,`lbs`) VALUES " + 
       "(?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.dateOccured, req.body.lbs],function(err){
-        console.log("name: ",req.body.name);
+        console.log("name first add: ",req.body.name);
         console.log("reps: ",req.body.reps);
         console.log("weight: ",req.body.weight);
         console.log("dateOccured: ",req.body.dateOccured);
@@ -59,6 +59,7 @@ app.post('/',function(req,res,next){
           next(err);
           return;
         }//end if err
+        return;
     });//end pool.query
 
     //select all the data in the database and place in context
@@ -71,10 +72,9 @@ app.post('/',function(req,res,next){
       }//end if
       context.results = rows;
       console.log("context.results in add:", context.results);
-      console.log("--lbs:",context.results.lbs);
+      console.log("--lbs--:",context.results.lbs);
       res.render('home',context);
-      });//end mysql.pool.query
-    return;
+      });//end mysql.pool.query    
   }//end if [add]
   
   if(req.body['Update']){
