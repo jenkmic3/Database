@@ -1,9 +1,11 @@
-<p>results {{results}}</p>
-<p>this.results.name {{results.name}}</p>
-<p>Name {{this.name}}</p>
-<p>Context Results {{results}}</p>
-<p>Results: {{this.results}}</p>
-<p>Conext: {{context}}</p>
+{{#if results}}
+	<p>results {{results}}</p>
+	<p>this.results.name {{results.name}}</p>
+	<p>Name {{this.name}}</p>
+	<p>Context Results {{results}}</p>
+	<p>Results: {{this.results}}</p>
+	<p>Conext: {{context}}</p>
+{{/if}}
 <form action="/" method="post">
 	<label for="name">Name of Exercise:</label>
 	<input id="name" type="text" name="name" value="{{this.results.name}}">
