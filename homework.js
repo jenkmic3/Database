@@ -59,22 +59,22 @@ app.post('/',function(req,res,next){
           next(err);
           return;
         }//end if err
-        
+        //select all the data in the database and place in context
+      pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
+        console.log("In the select");
+        if(err){
+          console.log("Error in Select *");
+          next(err);
+          return;
+        }//end if
+        context.results = rows;
+        console.log("context.results in add:", context.results);
+        console.log("--lbs--:",context.results.lbs);
+        res.render('home',context);
+      });//end pool.query.select  
     });//end pool.query
 
-    //select all the data in the database and place in context
-    pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
-      console.log("In the select");
-      if(err){
-        console.log("Error in Select *");
-        next(err);
-        return;
-      }//end if
-      context.results = rows;
-      console.log("context.results in add:", context.results);
-      console.log("--lbs--:",context.results.lbs);
-      res.render('home',context);
-      });//end mysql.pool.query    
+      
   }//end if [add]
   
   if(req.body['Update']){
