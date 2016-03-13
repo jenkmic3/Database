@@ -69,7 +69,8 @@ app.post('/',function(req,res,next){
         return;
       }//end if
       context.results = rows;
-      console.log("context.results:", context.results);
+      console.log("context.results in add:", context.results);
+      console.log("lbs:",context.results.lbs);
       res.render('home',context);
       });//end mysql.pool.query
   }//end if [add]
