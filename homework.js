@@ -74,6 +74,7 @@ app.post('/',function(req,res,next){
       console.log("--lbs:",context.results.lbs);
       res.render('home',context);
       });//end mysql.pool.query
+    return;
   }//end if [add]
   
   if(req.body['Update']){
