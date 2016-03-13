@@ -73,8 +73,6 @@ app.post('/',function(req,res,next){
         res.render('home',context);
       });//end pool.query.select  
     });//end pool.query
-
-      
   }//end if [add]
   
   if(req.body['Update']){
@@ -93,6 +91,31 @@ app.post('/',function(req,res,next){
       res.render('update',context);
     });//end function(err,rows,fields)
   }//end if Update
+
+  if(req.body['Delete']){
+    //delete data
+    newId=req.body.id;
+    console.log("In the delete section");
+    pool.query("DELETE FROM myExerciseData WHERE id=?",[newId],function(err){
+         if (err){
+          console.log("Error in Delete");
+          next(err);
+          return;
+        }//end if err
+        //select all the data in the database and place in context
+      pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
+        console.log("In the select");
+        if(err){
+          console.log("Error in Select *");
+          next(err);
+          return;
+        }//end if
+        context.results = rows;
+        console.log("context.results in delete:", context.results);        
+        res.render('home',context);
+      });//end pool.query.select  
+    });//end pool.query
+  }//end if [add]
 
 });//end post
 
