@@ -59,7 +59,7 @@ app.post('/',function(req,res,next){
           next(err);
           return;
         }//end if err
-        return;
+        
     });//end pool.query
 
     //select all the data in the database and place in context
