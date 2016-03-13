@@ -115,7 +115,49 @@ app.post('/',function(req,res,next){
         res.render('home',context);
       });//end pool.query.select  
     });//end pool.query
-  }//end if [add]
+  }//end if [Delete]
+
+  if(req.body['newUpdate']){
+    //delete data
+    newId=req.body.id;
+    console.log("In the newUpdate section");
+    pool.query("DELETE FROM myExerciseData WHERE id=?",[newId],function(err){
+         if (err){
+          console.log("Error in Delete");
+          next(err);
+          return;
+        }//end if err
+        //select all the data in the database and place in context
+      pool.query("INSERT INTO myExerciseData (`name`, `reps`, `weight`, `dateOccured`,`lbs`) VALUES " + 
+      "(?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.dateOccured, req.body.lbs],function(err){
+        console.log("name first add: ",req.body.name);
+        console.log("reps: ",req.body.reps);
+        console.log("weight: ",req.body.weight);
+        console.log("dateOccured: ",req.body.dateOccured);
+        console.log("lbs: ",req.body.lbs);
+        if (err){
+          console.log("Err");
+          next(err);
+          return;
+        }//end if err
+        //select all the data in the database and place in context
+      pool.query('SELECT * FROM myExerciseData', function(err, rows, fields){
+        console.log("In the select");
+        if(err){
+          console.log("Error in Select *");
+          next(err);
+          return;
+        }//end if
+        context.results = rows;
+        console.log("context.results in add:", context.results);
+        console.log("--lbs--:",context.results.lbs);
+        res.render('home',context);
+      });//end pool.query.select  
+    });//end pool.query
+    });//end pool.query
+  }//end if [Delete]
+
+
 
 });//end post
 

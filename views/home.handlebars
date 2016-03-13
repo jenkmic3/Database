@@ -20,14 +20,10 @@
     <input type="submit" name="add">
 </form>
 
-<p>Context Results {{results}}</p>
-
 {{#if results}}
   <p>Your Exercises:</p>  
   <ul>
-    <p>Results: {{this.results}}</p>
     {{#each results}}
-      <p>In Each Results</p>
       <li>
         <h3>Exercise: {{this.name}} Reps: {{this.reps}} Weight: {{this.weight}} Date:{{this.dateOccured}} lbs: {{this.lbs}}
           <form method="post">
